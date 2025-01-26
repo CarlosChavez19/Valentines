@@ -26,11 +26,13 @@ var beardedBoo = function() {
   yipee.volume = 0.3;
   boomSound.volume = 0.3;
 
-  var answer = prompt("Si? No? Tal vez?").toLowerCase()
+  var answer = prompt("Quieres pasar San Valentin conmigo?\nSi? o No? ").toLowerCase()
 /* .toLowerCase IS BEST PRACTICE! IT'S ALSO OK IF YOU TYPE THE FIRST LETTER INSTEAD OF THE WORD! */
   if (answer == "si" || answer == 'sipi' || answer == 'chi') {
     $('body').children().hide();
     title.textContent = "Sabia que dirias que si! uwu";
+
+    $('#content-text').show();
     $('#title').show();
     $('#answer-yes').css('display', 'flex');
     backgroundMusic.pause();
@@ -39,15 +41,6 @@ var beardedBoo = function() {
 
 
 
-  } else if (answer == "tal vez" || answer == 'maybe') {
-    body.addClass("maybe")
-/* I WANTED THE BG TO CHANGE BEFORE THE ALERT AND THE IMAGE AFTER THE PROMPT AND THE NEXT PROMPT AFTER THAT! I LEARNED THAT IF ALERT AD IMAGE ARE NOT IN THE setTimeout TOGETHER, IT DOES THEM AT THE SAME TIME. */
-    setTimeout(beardedBoo, 6000)
-    setTimeout(function() {
-      alert("Perhaps you are not aware of the many benefits")
-      image.addClass("benefits")
-    }, 200)
-/* HEY!!! */
   } else {
     $('body').children().hide();
     $('#answer-no').css('display', 'block');
@@ -64,6 +57,9 @@ var beardedBoo = function() {
 $(document).ready(function () {
   var audio = document.getElementById("background-music");
   audio.volume = 0.1;
+  var kiss = document.getElementById("kiss");
+  kiss.volume = 0.5;
+  
 
   $(document).one('click', function () {
     audio.play();
@@ -96,7 +92,39 @@ $(document).ready(function () {
       setTimeout(beardedBoo, 800)
     });
 
-    
+    $('#emoji2')
+    .click(function(){
+      $('#emoji2').attr("src", "assets/images/emoji4.webp")
+      kiss.play();
+      
+      setTimeout(function(){
+      $('#emoji2').attr("src", "assets/images/emoji2.webp");
+      }, 800);
+    })
+    .mouseenter(function(){
+      $(this).css("transform", "scale(0.7)");
+    })
+    .mouseleave(function(){
+      $(this).css("transform", "scale(0.6)");
+    })
+
+    $('#emoji3')
+    .click(function(){
+      $('#emoji3').attr("src", "assets/images/emoji4.webp")
+      kiss.play();
+      
+      setTimeout(function(){
+      $('#emoji3').attr("src", "assets/images/emoji3.webp");
+      }, 800);
+    })
+    .mouseenter(function(){
+      $(this).css("transform", "scale(0.7)");
+    })
+    .mouseleave(function(){
+      $(this).css("transform", "scale(0.6)");
+    })
+
+
     $("#show-content-button")
     .mouseenter(function () {
       $(this).attr("src", "https://stickercommunity.com/uploads/main/29-09-2020-21-10-03-abc15.webp")
