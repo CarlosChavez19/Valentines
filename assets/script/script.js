@@ -26,7 +26,7 @@ var beardedBoo = function() {
   yipee.volume = 0.3;
   boomSound.volume = 0.3;
 
-  var answer = prompt("Quieres pasar San Valentin conmigo?\nSi? o No? ").toLowerCase()
+  var answer = prompt("Te gustaria pasar San Valentin conmigo?\nSi? No?").toLowerCase()
 /* .toLowerCase IS BEST PRACTICE! IT'S ALSO OK IF YOU TYPE THE FIRST LETTER INSTEAD OF THE WORD! */
   if (answer == "si" || answer == 'sipi' || answer == 'chi') {
     $('body').children().hide();
@@ -124,7 +124,7 @@ $(document).ready(function () {
       $(this).css("transform", "scale(0.6)");
     })
 
-
+    
     $("#show-content-button")
     .mouseenter(function () {
       $(this).attr("src", "https://stickercommunity.com/uploads/main/29-09-2020-21-10-03-abc15.webp")
